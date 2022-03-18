@@ -12,12 +12,12 @@ cnt = 0
 
 def dfs(x,y):
     global cnt
-    dx = [-1, 0, 1, 0]
-    dy = [0, 1, 0, -1]
+    dx = [-1,1,0,0]
+    dy = [0,0,-1,1]
     graph[x][y] = 0
     cnt+=1
     for i in range(4):
-        nx = x + dx[i] #i=0일때 (nx,ny)는 좌 , i=1일때 (nx,ny)는 상
+        nx = x + dx[i]
         ny = y + dy[i]
         if nx < 0 or nx >= N or ny < 0 or ny >=N:
             continue
