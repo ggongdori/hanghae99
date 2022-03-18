@@ -20,7 +20,7 @@ i, longest, seen = 0, 0, set()
 for c in s:
     while c in seen:
         #If c is in seen, continue to remove letters from the beginning until we remove c
-        seen.rmove(s[i])
+        seen.remove(s[i])
         i += 1
     #Add c to set of seen numbers
     seen.add(c)
