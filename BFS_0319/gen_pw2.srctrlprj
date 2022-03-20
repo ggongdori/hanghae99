@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+    <source_groups>
+        <source_group_206c7b39-17ea-43ec-b8e1-7183b64ca3e5>
+            <name>Python Source Group</name>
+            <source_extensions>
+                <source_extension>pw_generator.py</source_extension>
+            </source_extensions>
+            <source_paths>
+                <source_path>pw_generator.py</source_path>
+            </source_paths>
+            <status>enabled</status>
+            <type>Python Source Group</type>
+        </source_group_206c7b39-17ea-43ec-b8e1-7183b64ca3e5>
+    </source_groups>
+    <version>8</version>
+</config>

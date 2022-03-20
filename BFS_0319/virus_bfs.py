@@ -18,6 +18,7 @@ for _ in range(C):
     graph[c2].append(c1)
 q = deque()
 q.append(1)
+
 #방문체크
 visited[1] = 1
 

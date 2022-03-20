@@ -30,8 +30,8 @@ def bfs(a,b):
                     q.append((nx, ny))
                     cnt += 1
     return cnt
-ans = []
 
+ans = []
 for i in range(N):
     for j in range(N):
         if graph[i][j] == 1 and visited[i][j] == 0:
