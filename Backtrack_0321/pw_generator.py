@@ -14,11 +14,11 @@ password = []
 visited = [0] * C
 
 #백트래킹 함수
-def backtrack(depth, start):
-    #종료 조건 1, 2
+def backtrack(length, start):
+    #종료 조건 1+2
     #문자열 길이 L
     #모음 최소 2개, 자음 최소 1개
-    if depth == L:
+    if length == L:
         consonant = 0
         vowel = 0
         for word in password:
@@ -41,9 +41,9 @@ def backtrack(depth, start):
             #암호 리스트에 추가
             password.append(chars[i])
             #재귀로 다음 문자 호출하고 하나 더 들어감
-            backtrack(depth + 1, i + 1)
-            #리턴 후 직전 인덱스 0으로 만들기
-            #
+            backtrack(length + 1, i + 1)
+            #백트래킹 구현
+            #인덱스 0으로 만들어 하나 뒤로 돌아간 후 다음 문자 탐색
             visited[i] = 0
             password.pop()
 
