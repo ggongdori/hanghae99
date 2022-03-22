@@ -2,7 +2,6 @@ import sys
 import timeit
 # from itertools import combinations
 
-
 input = sys.stdin.readline
 
 #입력 받기
@@ -19,10 +18,7 @@ visited = [0] * C
 start_time = timeit.default_timer()  # 시작 시간 체크
 #백트래킹 함수
 def backtrack(length, start):
-    #종료 조건 1+2
-    #문자열 길이 L
-    #모음 최소 2개, 자음 최소 1개
-    if length == L:
+    if length == L: #종료 조건 1+2 문자열 길이 L
         consonant = 0
         vowel = 0
         for word in password:
@@ -30,12 +26,11 @@ def backtrack(length, start):
                 vowel += 1
             else:
                 consonant += 1
-        if consonant >= 2 and vowel >= 1:
+        if consonant >= 2 and vowel >= 1:  #모음 최소 2개, 자음 최소 1개
             for word in password:
                 print(word, end="")
             print()
         return
-
     #백트래킹 반복문
     #start = 입력 문자열 중 몇 번째 문자인지
     #length = 현재까지 문자열 길이
@@ -46,25 +41,21 @@ def backtrack(length, start):
             visited[i] = 1
             #암호 후보 리스트에 추가
             password.append(chars[i])
-            #재귀
             backtrack(length + 1, i + 1)
-            #백트래킹 핵심
-            #값을 0으로 만들어 하나 뒤로 돌아간 후 다음 문자 탐색
+            #백트래킹 핵심 값을 0으로 만들어 하나 뒤로 돌아간 후 다음 문자 탐색
             visited[i] = 0
             #조건에 맞지 않으면 가장 최근 문자 pop
             password.pop()
-
-
 backtrack(0, 0)
 
-import sys
+# import sys
 # from itertools import combinations
 #
 # vowels = ['a', 'e', 'i', 'o', 'u']
-# # L, C = map(int, sys.stdin.readline().split())
-# # pwd = sorted(list(map(str, sys.stdin.readline().split())))
+# L, C = map(int, sys.stdin.readline().split())
+# pwd = list(map(str, sys.stdin.readline().split()))
 #
-# comb = combinations(chars, L)
+# comb = combinations(pwd, L)
 #
 # for c in comb:
 #     count = 0
