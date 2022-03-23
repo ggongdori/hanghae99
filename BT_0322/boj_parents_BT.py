@@ -7,18 +7,22 @@ N = int(input())
 #1번부터 시작하므로
 node = [[] for _ in range(N+1)]
 visited = [0] * (N+1)
+ans = [1 for _ in range(N+1)]
 for _ in range(N-1):
     n, m = map(int, input().split())
     node[n].append(m)
     node[m].append(n)
 
-def Dfs(start, node, visited):
+print(node)
+def dfs(start):
+    visited[start] = 1
     for i in node[start]:
         if visited[i] == 0:
-            visited[i] = start
-            Dfs(i, node, visited)
+            ans[i] = start
+            dfs(i)
+    return
+dfs(1)
 
-Dfs(1, node, visited)
-
+#2번 노드부터 프린트
 for i in range(2, N+1):
-    print(visited[i])
+    print(ans[i])
