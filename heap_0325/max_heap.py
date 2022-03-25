@@ -1,10 +1,13 @@
 import sys
 import heapq
 
-N = int(sys.stdin.readline())
+
+input = sys.stdin.readline
+N = int(input())
 heap = []
+
 for _ in range(N):
-    x = int(sys.stdin.readline())
+    x = int(input())
     if x == 0:
         if heap:
             print(heapq.heappop(heap)[1])
