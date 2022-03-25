@@ -18,10 +18,10 @@ def findKthLargest(self, nums, k):
     return heapq.heappop(heap)
 
 def findKthLargest(self, nums: List[int], k: int) -> int:
-    heapq.heapify(nums)
+    heap = heapq.heapify(nums)
     length = len(nums)
     while length > k:
-        heapq.heappop(nums)
+        heap.heappop(nums)
         length -= 1
     return nums[0]
 
