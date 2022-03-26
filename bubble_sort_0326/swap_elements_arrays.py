@@ -10,7 +10,7 @@ b = list(map(int, input().split()))
 #잘못된 입력 제거
 if not len(a) == n or not len(b) == n:
     print("배열의 길이가 다릅니다")
-    exit(1)
+    exit(1) #프로그램이 에러로 인해 종료 <-> exit(0)
 
 # 하나는 오름차순, 하나는 내림차순으로 정렬
 # a.sort()

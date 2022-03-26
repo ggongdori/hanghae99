@@ -7,9 +7,12 @@ n,k = map(int, input().split())
 a = list(map(int, input().split()))
 b = list(map(int, input().split()))
 
+#잘못된 입력 제거
 if not len(a) == n or not len(b) == n:
     print("배열의 길이가 다릅니다")
-    exit(1)
+    exit(1) #프로그램이 에러로 인해 종료 <-> exit(0)
+
+
 #오름차순
 for i in range(len(a)-1):
     min_val = i
