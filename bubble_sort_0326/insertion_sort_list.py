@@ -9,7 +9,7 @@ class Solution:
     def insertionSortList(self, head):
     curr = dummy = ListNode(0)
     while head:
-        if curr and cur.val > head.val:
+        if curr and curr.val > head.val:
             curr = dummy
         while curr.next and curr.next.val < head.val: # classic insertion sort to find position
             curr = curr.next
