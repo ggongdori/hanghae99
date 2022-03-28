@@ -3,14 +3,14 @@ from collections import defaultdict
 
 input = sys.stdin.readline
 
-N = int(input())
+n = int(input())
 
-score_dict = defaultdict(list)
 score_list = []
-for _ in range(N):
-    name, guk, young, soo = map(str, input().split())
-    score_list.append([name, guk, young, soo])
-for s in score_list:
-    score_dict[s[0]].append([s[1], s[2], s[3]])
 
-print(score_dict)
+for _ in range(n) :
+  score_list.append(input().split())
+
+score_list.sort(key=lambda x: (-int(x[1]), int(x[2]), -int(x[3]), x[0]))
+
+for s in score_list :
+  print(s[0])
