@@ -10,7 +10,7 @@ for _ in range(N):
     coord.append((x,y))
 
 # print(coord)
-coord.sort(key = lambda x: x[1])
+coord.sort(key = lambda x: (x[1], x[0]))
 
 for c in coord:
     print(c[0], c[1], end  = "\n")
