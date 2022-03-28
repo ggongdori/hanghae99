@@ -14,4 +14,4 @@ coord.sort(key = lambda x: x[1])
 
 
 for c in coord:
-    print(c)
+    print(c[0], c[1], end = "\n")
