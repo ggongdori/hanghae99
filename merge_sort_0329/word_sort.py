@@ -10,7 +10,7 @@ for _ in range(N):
 
 word_list = list(set(word_list))
 
-print(word_list)
+# print(word_list)
 word_list.sort()
 word_list.sort(key = len)
 
