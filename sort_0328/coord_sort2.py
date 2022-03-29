@@ -12,5 +12,8 @@ for _ in range(N):
 # print(coord)
 coord.sort(key = lambda x: (x[1], x[0]))
 
-for c in coord:
-    print(c[0], c[1], end  = "\n")
+print(coord)
+# for c in coord:
+#     print(c[0], c[1], end = "\n")
+for i in range(len(coord)):
+    print(*coord[i])
