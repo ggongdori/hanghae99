@@ -10,6 +10,6 @@ for _ in range(N):
     members.append((age, name))
 
 members.sort(key=lambda x: x[0])
-
+#나이, 입력 순으로 정렬
 for m in members:
     print(m[0], m[1], end = "\n")

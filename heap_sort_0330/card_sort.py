@@ -13,6 +13,7 @@ heapq.heapify(cards)
 # print(cards)
 
 print(cards)
+#힙으로 정렬 구현
 while len(cards) != 1:
     first = heapq.heappop(cards)
     second = heapq.heappop(cards)
