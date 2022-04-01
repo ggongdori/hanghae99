@@ -1,3 +1,8 @@
+import sys
+
+input = sys.stdin.readline
+
+
 def binary_search(array, target, start, end):
     while start <= end:
         mid = (start + end) // 2
@@ -18,8 +23,8 @@ n, target = list(map(int, input().split()))
 array = list(map(int, input().split()))
 
 # 이진 탐색 수행 결과 출력
-result = binary_search(array, target, 0, n - 1)
-if result == None:
+answer = binary_search(array, target, 0, n - 1)
+if answer is None:
     print("원소가 존재하지 않습니다.")
 else:
-    print(result + 1)
+    print(answer + 1)

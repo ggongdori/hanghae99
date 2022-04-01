@@ -1,12 +1,16 @@
+import sys
+
+input = sys.stdin.readline
+
 def binary_search(array,left,right,target):
-    while left<=right:
+    while left <= right:
         mid = (left+right)//2
-        if array[mid]==target:
+        if array[mid] == target:
             return mid
-        elif array[mid]<target:
-            left=mid+1
-        elif array[mid]>target:
-            right=mid-1
+        elif array[mid] < target:
+            left = mid+1
+        elif array[mid] > target:
+            right = mid-1
     return None
 
 n = int(input())
