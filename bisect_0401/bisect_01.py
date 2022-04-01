@@ -1,30 +1,53 @@
-import sys
+def binary_search(target, data):
+    data.sort()
+    start = 0
+    end = len(data) - 1
 
-input = sys.stdin.readline
-
-
-def binary_search(array, target, start, end):
     while start <= end:
         mid = (start + end) // 2
-        # 찾은 경우 중간점 인덱스 반환
-        if array[mid] == target:
-            return mid
-        # 중간점의 값보다 찾고자 하는 값이 작은 경우 왼쪽 확인
-        elif array[mid] > target:
-            end = mid - 1
-        # 중간점의 값보다 찾고자 하는 값이 큰 경우 오른쪽 확인
-        else:
+
+        if data[mid] == target:
+            return mid # 함수를 끝내버린다.
+        elif data[mid] < target:
             start = mid + 1
+        else:
+            end = mid -1
+
     return None
 
-# n(원소의 개수)과 target(찾고자 하는 값)을 입력 받기
-n, target = list(map(int, input().split()))
-# 전체 원소 입력 받기
-array = list(map(int, input().split()))
+# 테스트용 코드
+if __name__ == "__main__":
+  li = [i**2 for i in range(11)]
+  target = 9
+  idx = binary_search(target, li)
 
-# 이진 탐색 수행 결과 출력
-answer = binary_search(array, target, 0, n - 1)
-if answer is None:
-    print("원소가 존재하지 않습니다.")
-else:
-    print(answer + 1)
+  if idx:
+      print(li[idx])
+  else:
+      print("찾으시는 타겟 {}가 없습니다".format(target))
+
+# recursive
+
+def binary_search_recursion(target, start, end, data):
+    if start > end:
+        return None
+
+    mid = (start + end) // 2
+
+    if data[mid] == target:
+        return mid
+    elif data[mid] > target:
+        end = mid - 1
+    else:
+        start = mid + 1
+
+    return binary_search_recursion(target, start, end, data)
+
+# 테스트용 코드
+if __name__ == '__main__':
+    li = [i*3 for i in range(11)]
+    target = 6
+    idx = binary_search_recursion(target, 0, 10, li)
+
+    print(li)
+    print(idx)
