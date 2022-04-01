@@ -21,7 +21,7 @@ arr2 = list(map(int, input().split()))
 
 for i in arr2:
     x = binary_search(arr1,0,n-1,i)
-    if x != None:
+    if x is not None:
         print('yes',end=' ')
     else:
         print('no',end=' ')
