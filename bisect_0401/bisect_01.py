@@ -1,14 +1,18 @@
-def binary_search(target, data):
-    data.sort()
+import sys
+
+input = sys.stdin.readline
+
+def binary_search(target, array):
+    array.sort()
     start = 0
-    end = len(data) - 1
+    end = len(array) - 1
 
     while start <= end:
         mid = (start + end) // 2
 
-        if data[mid] == target:
+        if array[mid] == target:
             return mid # 함수를 끝내버린다.
-        elif data[mid] < target:
+        elif array[mid] < target:
             start = mid + 1
         else:
             end = mid -1
@@ -17,37 +21,40 @@ def binary_search(target, data):
 
 # 테스트용 코드
 if __name__ == "__main__":
-  li = [i**2 for i in range(11)]
-  target = 9
-  idx = binary_search(target, li)
 
-  if idx:
-      print(li[idx])
-  else:
+    n = int(input())
+    nums = list(map(int, input().split()))
+    target = int(input())
+    idx = binary_search(target, nums)
+
+    if idx:
+      print(nums[idx])
+    else:
       print("찾으시는 타겟 {}가 없습니다".format(target))
 
 # recursive
 
-def binary_search_recursion(target, start, end, data):
+def binary_search_recursion(target, array, start, end):
     if start > end:
         return None
 
     mid = (start + end) // 2
 
-    if data[mid] == target:
+    if array[mid] == target:
         return mid
-    elif data[mid] > target:
+    elif array[mid] > target:
         end = mid - 1
     else:
         start = mid + 1
 
-    return binary_search_recursion(target, start, end, data)
+    return binary_search_recursion(target, start, end, array)
 
 # 테스트용 코드
 if __name__ == '__main__':
-    li = [i*3 for i in range(11)]
-    target = 6
-    idx = binary_search_recursion(target, 0, 10, li)
+    n = int(input())
+    nums = list(map(int, input().split()))
+    target = int(input())
+    idx = binary_search_recursion(target, 0, 10, nums)
 
-    print(li)
+    print(nums)
     print(idx)
