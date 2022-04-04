@@ -1,19 +1,25 @@
-import sys
+class Solution:
+    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
+        import heapq
+        from collections import defaultdict
 
+        # Make graph
+        adj_list = defaultdict(list)
+        for u, v, w in flights:
+            adj_list[u].append((v, w))
 
-def findCheapestPrice(n, flights, src, dst, K):
-	graph = collections.defaultdict(dict)
-	for s, d, w in flights:
-		graph[s][d] = w
-	pq = [(0, src, K+1)]
-	vis = [0] * n
-	while pq:
-		w, x, k = heapq.heappop(pq)
-		if x == dst:
-			return w
-		if vis[x] >= k:
-			continue
-		vis[x] = k
-		for y, dw in graph[x].items():
-			heapq.heappush(pq, (w+dw, y, k-1))
-	return -1
+        prior_queue = [(0, -1, src)]  # weight, steps, node
+
+        while prior_queue:
+            cost, steps, node = heapq.heappop(prior_queue)
+
+            if steps > k:
+                continue
+
+            if node == dst:
+                return cost
+
+            for neighb, weight in adj_list[node]:
+                heapq.heappush(prior_queue, (cost + weight, steps + 1, neighb))
+
+        return -1
