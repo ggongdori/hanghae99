@@ -1,3 +1,5 @@
+#bfs using queue
+
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
         from collections import deque, defaultdict
@@ -7,7 +9,7 @@ class Solution:
         for u, v, w in times:
             graph[u].append((v, w))
         while queue:
-            time, node = q.popleft()
+            time, node = queue.popleft()
             if time < t[node]:
                 t[node] = time
                 for v, w in graph[node]:
