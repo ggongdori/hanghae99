@@ -3,7 +3,7 @@ class Solution:
         import heapq
         from collections import defaultdict
 
-        # Make graph
+        # generate graph
         adj_list = defaultdict(list)
         for u, v, w in flights:
             adj_list[u].append((v, w))
