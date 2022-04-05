@@ -16,24 +16,24 @@ for _ in range(E):
 
 while heap:
     # 최소 비용의 경로를 먼저 뽑아주고 (d:비용, s:출발, g:도착)
-    d, s, g = hq.heappop(heap)
+    cost, start, dest = hq.heappop(heap)
     # 출발지와 도착지가 같다면 사이클!
     # heap을 이용하기 때문에 처음 나온 사이클이 가장 비용이 작은 사이클이므로 break 해버려도 됨! -> 여기서 시간이 굉장히 절약되는 듯
-    if s == g:
-        print(d)
+    if start == dest:
+        print(cost)
         break
     # d 값이 이미 저장된 비용보다 크다면 넘겨버림
-    if dist[s][g] < d:
+    if dist[start][dest] < cost:
         continue
 
     # g에서 갈 수 있는 노드들을 검사
-    for nd, ng in graph[g]:
+    for new_cost, new_dest in graph[dest]:
         # s->g->ng로 가는 비용
-        new_d = d + nd
+        new_c = cost + new_cost
         # s->g->ng로 가는게 s->ng보다 빠르다면 값 갱신해주고 heap에 넣어줌
-        if new_d < dist[s][ng]:
-            dist[s][ng] = new_d
-            hq.heappush(heap, [new_d, s, ng])
+        if new_c < dist[start][new_dest]:
+            dist[start][new_dest] = new_c
+            hq.heappush(heap, [new_c, start, new_dest])
 else:
     # heap 다 돌았는데 없다면 -1
     print(-1)
