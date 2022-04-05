@@ -1,7 +1,7 @@
 import sys
 
 input = sys.stdin.readline
-INF = sys.maxsize
+INF = 1e9
 
 v, e = map(int, input().split())
 graph = [[INF] * (v+1) for _ in range(v+1)]
@@ -20,7 +20,7 @@ answer = INF
 for i in range(1, v+1):
     answer = min(answer, graph[i][i])
 
-if answer == sys.maxsize:
+if answer == INF:
     print(-1)
 else:
     print(answer)
